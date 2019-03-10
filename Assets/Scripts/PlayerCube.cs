@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerCube : MonoBehaviour
 {
     public static PlayerCube Instance;
-
+    public Transform explosionPoint;
     private bool isExploded;
     void Awake()
     {
@@ -17,6 +17,10 @@ public class PlayerCube : MonoBehaviour
         {
             Destroy(this);
         }
+        if (explosionPoint == null)
+        {
+            explosionPoint = transform;
+        }
     }
 
     void Update()
@@ -24,12 +28,12 @@ public class PlayerCube : MonoBehaviour
         if (GameManager.Instance.gameOver && !isExploded)
         {
             isExploded = true;
-
+            Wrj.Utils.MapToCurve.StopAllOnTransform(transform);
             foreach (Rigidbody rb in GetComponentsInChildren<Rigidbody>())
             {
                 rb.isKinematic = false;
-                rb.useGravity = false;
-                rb.AddExplosionForce(350f, PlayerCube.Instance.transform.position, 100f);
+                rb.useGravity = true;
+                rb.AddExplosionForce(500f, explosionPoint.position, 100f);
                 rb.GetComponent<Collider>().enabled = false;
             }
         }
