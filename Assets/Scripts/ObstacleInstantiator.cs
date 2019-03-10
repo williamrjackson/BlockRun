@@ -29,6 +29,7 @@ public class ObstacleInstantiator : MonoBehaviour
     public void InstantiateRandom()
     {
         Transform t = Instantiate(walls[Random.Range(0, walls.Length)]).transform;
+        t.localScale = Vector3.zero;
         t.position = transform.position;
     }
 }

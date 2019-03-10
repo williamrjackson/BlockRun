@@ -8,6 +8,7 @@ public class Wall : MonoBehaviour
     public float speed = 1f;
     public bool isVisible;
     private bool isExploded;
+
     void Update()
     {
         if (!GameManager.Instance.gameOver)
