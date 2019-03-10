@@ -2310,7 +2310,7 @@ GameObject:
   - component: {fileID: 4160466841137979362}
   - component: {fileID: 277354751156521942}
   m_Layer: 0
-  m_Name: Wall 1
+  m_Name: Wall4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2369,7 +2369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ffda6dd66707e4fa55711aa069378d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 4
   isVisible: 0
 --- !u!1 &7279284461189798123
 GameObject:
