@@ -31,6 +31,9 @@ public class BlockMovement : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.gameOver)
+            return;
+
         // Add movement to the queue
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {

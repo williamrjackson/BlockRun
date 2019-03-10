@@ -29,7 +29,7 @@ public class Wall : MonoBehaviour
     {
         isExploded = true;
         ObstacleInstantiator.Instance.InstantiateRandom();
-        Debug.Log("Explode");
+
         foreach (Rigidbody rb in GetComponentsInChildren<Rigidbody>())
         {
             rb.isKinematic = false;
@@ -38,5 +38,6 @@ public class Wall : MonoBehaviour
             rb.GetComponent<WallBrick>().enabled = false;
             rb.GetComponent<Collider>().enabled = false;
         }
+        Wrj.Utils.Delay(1f, () => Destroy(gameObject));
     }
 }
