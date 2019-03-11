@@ -8,6 +8,27 @@ public class Wall : MonoBehaviour
     public float speed = 1f;
     public bool isVisible;
     private bool isExploded;
+    private int passThroughCount = 0;
+    void Start()
+    {
+        foreach(WallBrick brick in GetComponentsInChildren<WallBrick>())
+        {
+            if (brick.isPassThrough)
+            {
+                passThroughCount++; 
+                brick.hitCallback += Hit;
+            }
+        }
+        Debug.Log("Total Passthrough count = " + passThroughCount);
+    }
+
+    private void Hit(WallBrick caller)
+    {
+        Debug.Log(caller.name);
+        passThroughCount--;
+        caller.hitCallback -= Hit;
+        Debug.Log("Passthrough count = " + passThroughCount);
+    }
 
     void Update()
     {
@@ -22,7 +43,10 @@ public class Wall : MonoBehaviour
 
         if (!isExploded && transform.position.z < PlayerCube.Instance.transform.position.z)
         {
-            Explode();
+            if (passThroughCount == 0)
+                Explode();
+            else
+                GameManager.Instance.gameOver = true;
         }
     }
 

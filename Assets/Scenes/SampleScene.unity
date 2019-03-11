@@ -467,27 +467,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walls:
   - {fileID: 1071583042387934623, guid: c55df93e78eba694ebe7d320ae20fef1, type: 3}
-  - {fileID: 799281279932582419, guid: 582fe307375c4c34596d8528e1f11a6a, type: 3}
-  - {fileID: 4957657837064301221, guid: 747bef4ca2dc8874ebf2a20cbb91d8bc, type: 3}
-  - {fileID: 764403880819593781, guid: 3725ae974f4bcd34ca35dd42f7ec4b69, type: 3}
-  - {fileID: 5419614562338811593, guid: e8483629cff598f4fb7f1e8dd8e20915, type: 3}
-  - {fileID: 2123169748227330458, guid: bc08fb5d6cf8b154580925c755181345, type: 3}
-  - {fileID: 3232388423262613267, guid: 2a981aedcccc8174ba5f6e11ee10d722, type: 3}
-  - {fileID: 2690926042593234073, guid: b302db38b3e25484281227fd9300be3b, type: 3}
-  - {fileID: 4893939083647863206, guid: 84540e01838e17a4296ccbe20a40f596, type: 3}
-  - {fileID: 7878689784057502739, guid: b501af99ba876a546875d5e8603b7559, type: 3}
-  - {fileID: 6258164192945954962, guid: e2bf59977f331254daf1e7fbc61a269a, type: 3}
-  - {fileID: 6548434662374916333, guid: aa097da9a7ad2ed40ba20c37b31e8b74, type: 3}
-  - {fileID: 5203848218681193470, guid: 1ce739c6673fd13438347682948560d1, type: 3}
-  - {fileID: 8790569213984434228, guid: 85a9226d94f6c4e4684ccb8128c425b1, type: 3}
-  - {fileID: 7658683057452288456, guid: 5a9e951a64dcc0541bb0f4b99969ad21, type: 3}
-  - {fileID: 6866236505593725135, guid: 40409b947e57e284dbc7e784a8475188, type: 3}
-  - {fileID: 1731093912798859354, guid: abff272412910a04086edccf53fcfbdc, type: 3}
-  - {fileID: 4353997103558129027, guid: dafcba4e6d746f646a1556afdf82d168, type: 3}
-  - {fileID: 2444952037112598327, guid: 82074a246d783464488d142fb36fc270, type: 3}
-  - {fileID: 4403702332121011851, guid: 43566f091ba7a544f8670bdd8c789cd6, type: 3}
-  - {fileID: 3009158020801619753, guid: b443fe65c59a2654bbaef57589f20550, type: 3}
-  - {fileID: 8734193622154344797, guid: d65453af92701aa46b75b267853a821c, type: 3}
+  - {fileID: 4863937367713040667, guid: ef52cdd4a1f51224890ed9db0608b6e4, type: 3}
+  - {fileID: 3384360498491409619, guid: 1804d2817c755ae458ce4d839a8a6051, type: 3}
+  - {fileID: 5832645739601339749, guid: 6629b7cd6eb034c479c450662dcd6751, type: 3}
+  - {fileID: 6241200801969220321, guid: bfb019ae96bdd9940b9ca000ee3330f5, type: 3}
+  - {fileID: 7229312605257825269, guid: ef424902a3d560442b448d65e34b1cef, type: 3}
+  - {fileID: 7561626178824165535, guid: 10b5ae1b289a66c488d031e2f63550c0, type: 3}
+  - {fileID: 5300755906310913174, guid: 0ffbd8e44bac0ea42b25e852efb73094, type: 3}
+  - {fileID: 3279415136189944504, guid: e440d29f4bd675f478f84724de17a1a1, type: 3}
+  - {fileID: 625778077806069850, guid: 96318579356f65f4e9eb32654d771f83, type: 3}
+  - {fileID: 8579329327404974789, guid: 0569ff6356d9cb54eba3ffde57355bfe, type: 3}
+  - {fileID: 5893739632847833649, guid: 58f26366acab9c64ba4874fab5bbfd24, type: 3}
+  - {fileID: 1501603386298972246, guid: b1bd9694218006b4682a58b5dee11a05, type: 3}
+  - {fileID: 2367375695726795184, guid: a7600beb834f83c47b1e419bc9cd44b7, type: 3}
+  - {fileID: 5685178246830198851, guid: 97c3b457eaa010148bd40ee1d80d4c37, type: 3}
+  - {fileID: 1028553743424471704, guid: 92846de4dce500b449825d19ae6744ae, type: 3}
+  - {fileID: 568680849238391837, guid: 3500ec8c1ad2d1e4db5e0b8ad04381dd, type: 3}
+  - {fileID: 6607882121502673750, guid: 4e2b25d2e2f86f342a4c5d11aec45e62, type: 3}
+  - {fileID: 4470920484813974920, guid: e9d731f5319e2f2478f9ce5c8d307e4b, type: 3}
+  - {fileID: 6873765746616671948, guid: 81b423a680c78ec489c9b2522e69d7ff, type: 3}
+  - {fileID: 5453643054647964673, guid: 55b064fe260659245b18b901b0367e55, type: 3}
+  - {fileID: 8351475334691278463, guid: f9144973a75a2ad449d713e02e1b5515, type: 3}
 --- !u!4 &89653918
 Transform:
   m_ObjectHideFlags: 0
@@ -1665,7 +1665,7 @@ GameObject:
   - component: {fileID: 377399155}
   - component: {fileID: 377399156}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: RightWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6188,7 +6188,7 @@ GameObject:
   - component: {fileID: 930969831}
   - component: {fileID: 930969832}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: LeftWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
