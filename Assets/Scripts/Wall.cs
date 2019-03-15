@@ -20,6 +20,13 @@ public class Wall : MonoBehaviour
             }
         }
         Debug.Log("Total Passthrough count = " + passThroughCount);
+        Wrj.Utils.Delay(.5f, () => Show());
+    }
+
+    private void Show()
+    {
+        transform.EaseScale(Vector3.one, .5f);
+        isVisible = true;
     }
 
     private void Hit(WallBrick caller)
@@ -34,12 +41,6 @@ public class Wall : MonoBehaviour
     {
         if (!GameManager.Instance.gameOver)
             transform.position = transform.position - transform.forward * speed * Time.deltaTime;
-
-        if (!isVisible && Vector3.Distance(transform.position, PlayerCube.Instance.explosionPoint.position) < 10)
-        {
-            transform.EaseScale(Vector3.one, .5f);
-            isVisible = true;
-        }
 
         if (!isExploded && transform.position.z < PlayerCube.Instance.explosionPoint.position.z)
         {

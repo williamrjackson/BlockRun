@@ -140,6 +140,10 @@ public class LaserLine : MonoBehaviour {
     {
         color = newColor;
     }
+    public Color GetColor()
+    {
+        return color;
+    }
 
     public int numPositions
     {

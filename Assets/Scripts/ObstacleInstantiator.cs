@@ -7,7 +7,8 @@ public class ObstacleInstantiator : MonoBehaviour
     public static ObstacleInstantiator Instance;
 
     [SerializeField]
-    Wall[] walls;
+    private Wall[] walls;
+    private float speed = 5f;
 
     void Awake()
     {
@@ -28,8 +29,10 @@ public class ObstacleInstantiator : MonoBehaviour
     // Update is called once per frame
     public void InstantiateRandom()
     {
-        Transform t = Instantiate(walls[Random.Range(0, walls.Length)]).transform;
-        t.localScale = Vector3.zero;
-        t.position = transform.position;
+        Wall newWall = Instantiate(walls[Random.Range(0, walls.Length)]);
+        newWall.speed = Mathf.Min(speed += .1f, 10f);
+        newWall.transform.localScale = Vector3.zero;
+        newWall.transform.position = transform.position;
+
     }
 }
