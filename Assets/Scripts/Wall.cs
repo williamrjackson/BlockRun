@@ -35,13 +35,13 @@ public class Wall : MonoBehaviour
         if (!GameManager.Instance.gameOver)
             transform.position = transform.position - transform.forward * speed * Time.deltaTime;
 
-        if (!isVisible && Vector3.Distance(transform.position, PlayerCube.Instance.transform.position) < 10)
+        if (!isVisible && Vector3.Distance(transform.position, PlayerCube.Instance.explosionPoint.position) < 10)
         {
             transform.EaseScale(Vector3.one, .5f);
             isVisible = true;
         }
 
-        if (!isExploded && transform.position.z < PlayerCube.Instance.transform.position.z)
+        if (!isExploded && transform.position.z < PlayerCube.Instance.explosionPoint.position.z)
         {
             if (passThroughCount == 0)
                 Explode();

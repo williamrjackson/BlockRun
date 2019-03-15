@@ -34,7 +34,7 @@ public class PlayerCube : MonoBehaviour
                 rb.isKinematic = false;
                 rb.useGravity = true;
                 rb.AddExplosionForce(500f, explosionPoint.position, 100f);
-                rb.GetComponent<Collider>().enabled = false;
+                //rb.GetComponent<Collider>().enabled = false;
             }
             Wrj.Utils.Delay(3f, () => UnityEngine.SceneManagement.SceneManager.LoadScene(0));
         }
