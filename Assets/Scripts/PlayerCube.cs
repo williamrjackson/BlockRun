@@ -36,6 +36,7 @@ public class PlayerCube : MonoBehaviour
                 rb.AddExplosionForce(500f, explosionPoint.position, 100f);
                 rb.GetComponent<Collider>().enabled = false;
             }
+            Wrj.Utils.Delay(3f, () => UnityEngine.SceneManagement.SceneManager.LoadScene(0));
         }
     }
 }
