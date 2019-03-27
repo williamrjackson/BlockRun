@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ScoreDisplay : MonoBehaviour
 {
     [SerializeField]
-    private TMPro.TextMeshProUGUI currentScoreDisplay;
+    private TMPro.TextMeshProUGUI currentScoreDisplay = null;
     [SerializeField]
-    private TMPro.TextMeshProUGUI hiScoreDisplay;
+    private TMPro.TextMeshProUGUI hiScoreDisplay = null;
 
     void Start()
     {

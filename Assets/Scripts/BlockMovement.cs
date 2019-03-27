@@ -8,15 +8,14 @@ public class BlockMovement : MonoBehaviour
     private BoxCollider playerCube;
     [SerializeField]
     [Range(.1f, 1f)]
-    private float speed = .25f;
+    private float rotateDuration = .25f;
     [SerializeField]
     private AnimationCurve curve = AnimationCurve.EaseInOut(0, 0, 1, 1);
-    [SerializeField]
-    private AudioClip[] blockFall = null;
+
+    public delegate void BlockMoveDelegate();
+    public BlockMoveDelegate OnBlockMove;
 
     private bool locked;
-    private Transform originParent;
-    private Transform rotator;
     private Queue<System.Action> queuedMoves = new Queue<System.Action>();
 
     void Start()
@@ -71,22 +70,24 @@ public class BlockMovement : MonoBehaviour
         StartCoroutine(Move(Vector3.Cross(direction, Vector3.down), pivot));
     }
 
-    // Rotate rotator object by the requested duration over "speed" time
+    // Rotate by the requested duration over "rotateDuration" time
     private IEnumerator Move(Vector3 axis, Vector3 point)
     {
         Vector3 originalPos = transform.position;
         Quaternion originalRot = transform.rotation;
 
-        AudioPool.instance.PlayOneShot(blockFall[Random.Range(0, blockFall.Length)]);
+        if (OnBlockMove != null)
+            OnBlockMove();
+
         if (!locked)
         {
             yield break;
         }
         float elapsedTime = 0f;
-        while (elapsedTime < speed)
+        while (elapsedTime < rotateDuration)
         {
             elapsedTime += Time.deltaTime;
-            float lerpTime = curve.Evaluate(Mathf.InverseLerp(0f, speed, elapsedTime));
+            float lerpTime = curve.Evaluate(Mathf.InverseLerp(0f, rotateDuration, elapsedTime));
             transform.position = originalPos;
             transform.rotation = originalRot;
             transform.RotateAround(point, axis, 90f * lerpTime);

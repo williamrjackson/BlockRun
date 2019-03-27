@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ColorTransition : MonoBehaviour
 {
@@ -8,7 +6,7 @@ public class ColorTransition : MonoBehaviour
     [Range(.0001f, .1f)]
     private float cycleSpeed = .006f;
     [SerializeField]
-    LaserLine[] lasers;
+    LaserLine[] lasers = null;
 
     void Update()
     {

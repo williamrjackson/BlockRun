@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ObstacleInstantiator : MonoBehaviour
 {
     public static ObstacleInstantiator Instance;
 
     [SerializeField]
-    private Wall[] walls;
+    private Wall[] walls = null;
     [SerializeField]
-    private AudioClip[] breakAudio;
+    private AudioClip[] breakAudio = null;
     private float speed = 5f;
 
     void Awake()
