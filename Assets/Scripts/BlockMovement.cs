@@ -11,6 +11,8 @@ public class BlockMovement : MonoBehaviour
     private float speed = .25f;
     [SerializeField]
     private AnimationCurve curve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+    [SerializeField]
+    private AudioClip[] blockFall = null;
 
     private bool locked;
     private Transform originParent;
@@ -74,7 +76,8 @@ public class BlockMovement : MonoBehaviour
     {
         Vector3 originalPos = transform.position;
         Quaternion originalRot = transform.rotation;
-    
+
+        AudioPool.instance.PlayOneShot(blockFall[Random.Range(0, blockFall.Length)]);
         if (!locked)
         {
             yield break;

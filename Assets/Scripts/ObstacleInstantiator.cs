@@ -8,6 +8,8 @@ public class ObstacleInstantiator : MonoBehaviour
 
     [SerializeField]
     private Wall[] walls;
+    [SerializeField]
+    private AudioClip[] breakAudio;
     private float speed = 5f;
 
     void Awake()
@@ -30,7 +32,8 @@ public class ObstacleInstantiator : MonoBehaviour
     public void InstantiateRandom()
     {
         Wall newWall = Instantiate(walls[Random.Range(0, walls.Length)]);
-        newWall.speed = Mathf.Min(speed += .1f, 10f);
+        newWall.speed = Mathf.Min(speed += .1f, 25f);
+        newWall.breakAudio = breakAudio[Random.Range(0, breakAudio.Length)];
         newWall.transform.localScale = Vector3.zero;
         newWall.transform.position = transform.position;
 

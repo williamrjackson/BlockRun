@@ -7,6 +7,7 @@ public class Wall : MonoBehaviour
 {
     public float speed = 1f;
     public bool isVisible;
+    public AudioClip breakAudio;
     private bool isExploded;
     private int passThroughCount = 0;
     void Start()
@@ -19,7 +20,7 @@ public class Wall : MonoBehaviour
                 brick.hitCallback += Hit;
             }
         }
-        Debug.Log("Total Passthrough count = " + passThroughCount);
+        //Debug.Log("Total Passthrough count = " + passThroughCount);
         Wrj.Utils.Delay(.5f, () => Show());
     }
 
@@ -30,11 +31,10 @@ public class Wall : MonoBehaviour
     }
 
     private void Hit(WallBrick caller)
-    {
-        Debug.Log(caller.name);
+    { 
         passThroughCount--;
         caller.hitCallback -= Hit;
-        Debug.Log("Passthrough count = " + passThroughCount);
+        //Debug.Log("Passthrough count = " + passThroughCount);
     }
 
     void Update()
@@ -45,7 +45,10 @@ public class Wall : MonoBehaviour
         if (!isExploded && transform.position.z < PlayerCube.Instance.explosionPoint.position.z)
         {
             if (passThroughCount == 0)
+            {
                 Explode();
+                GameManager.Instance.AddToScore(10);
+            }
             else
                 GameManager.Instance.gameOver = true;
         }
@@ -55,7 +58,7 @@ public class Wall : MonoBehaviour
     {
         isExploded = true;
         ObstacleInstantiator.Instance.InstantiateRandom();
-
+        AudioPool.instance.PlayOneShot(breakAudio);
         foreach (Rigidbody rb in GetComponentsInChildren<Rigidbody>())
         {
             rb.isKinematic = false;
