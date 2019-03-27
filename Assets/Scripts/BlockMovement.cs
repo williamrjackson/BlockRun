@@ -35,19 +35,19 @@ public class BlockMovement : MonoBehaviour
         // Add movement to the queue
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            queuedMoves.Enqueue(() => PivotForMove(Vector3.forward));
+            queuedMoves.Enqueue(() => MoveOnPivot(Vector3.forward));
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            queuedMoves.Enqueue(() => PivotForMove(Vector3.back));
+            queuedMoves.Enqueue(() => MoveOnPivot(Vector3.back));
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            queuedMoves.Enqueue(() => PivotForMove(Vector3.right));
+            queuedMoves.Enqueue(() => MoveOnPivot(Vector3.right));
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            queuedMoves.Enqueue(() => PivotForMove(Vector3.left));
+            queuedMoves.Enqueue(() => MoveOnPivot(Vector3.left));
         }
 
         // If there's a movement to make, and one's not currently running, make the move
@@ -56,7 +56,7 @@ public class BlockMovement : MonoBehaviour
             queuedMoves.Dequeue().Invoke();
         }
     }
-    private void PivotForMove(Vector3 direction)
+    private void MoveOnPivot(Vector3 direction)
     {
         // ensure the object isn't alread moving
         if (locked)
