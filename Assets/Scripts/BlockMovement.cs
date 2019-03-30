@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ public class BlockMovement : MonoBehaviour
     private float rotateDuration = .25f;
     [SerializeField]
     private AnimationCurve curve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+    [SerializeField]
+    private TouchAxisCtrl swipe = null;
 
     public delegate void BlockMoveDelegate();
     public BlockMoveDelegate OnBlockMove;
@@ -23,6 +26,26 @@ public class BlockMovement : MonoBehaviour
         if (playerCube == null)
         {
             playerCube = GetComponentInChildren<BoxCollider>();
+        }
+        swipe.OnSwipe += OnSwipe;
+    }
+
+    private void OnSwipe(TouchAxisCtrl.Direction direction)
+    {
+        switch (direction)
+        {
+            case TouchAxisCtrl.Direction.Up:
+                queuedMoves.Enqueue(() => MoveOnPivot(Vector3.forward));
+                break;
+            case TouchAxisCtrl.Direction.Down:
+                queuedMoves.Enqueue(() => MoveOnPivot(Vector3.back));
+                break;
+            case TouchAxisCtrl.Direction.Right:
+                queuedMoves.Enqueue(() => MoveOnPivot(Vector3.right));
+                break;
+            default:
+                queuedMoves.Enqueue(() => MoveOnPivot(Vector3.left));
+                break;
         }
     }
 
